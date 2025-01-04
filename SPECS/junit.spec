@@ -3,7 +3,7 @@
 Name:           junit
 Epoch:          1
 Version:        4.13.1
-Release:        5%{?dist}
+Release:        7%{?dist}
 Summary:        Java regression test package
 License:        EPL-1.0
 URL:            http://www.junit.org/
@@ -52,7 +52,7 @@ Javadoc for %{name}.
 %prep
 %setup -q -n junit4-r%{version}
 
-%patch1 -p1
+%patch -P 1 -p1
 
 # InaccessibleBaseClassTest fails with Java 8
 sed -i /InaccessibleBaseClassTest/d src/test/java/org/junit/tests/AllTests.java
@@ -102,6 +102,12 @@ sed s/@version@/%{version}/ src/main/java/junit/runner/Version.java.template >sr
 %doc doc/*
 
 %changelog
+* Thu Nov 21 2024 Marián Konček <mkoncek@redhat.com> - 1:4.13.1-7
+- Fix patch usage
+
+* Tue Nov 19 2024 Marián Konček <mkoncek@redhat.com> - 1:4.13.1-6
+- Rebuild with regenerated Requires on Java
+
 * Mon Aug 09 2021 Mohan Boddu <mboddu@redhat.com> - 1:4.13.1-5
 - Rebuilt for IMA sigs, glibc 2.34, aarch64 flags
   Related: rhbz#1991688
