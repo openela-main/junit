@@ -3,11 +3,12 @@
 Name:           junit
 Epoch:          1
 Version:        4.13.1
-Release:        7%{?dist}
+Release:        9%{?dist}
 Summary:        Java regression test package
 License:        EPL-1.0
 URL:            http://www.junit.org/
 BuildArch:      noarch
+ExclusiveArch:  aarch64 ppc64le s390x x86_64 noarch
 
 # ./generate-tarball.sh
 Source0:        %{name}-%{version}.tar.gz
@@ -102,6 +103,12 @@ sed s/@version@/%{version}/ src/main/java/junit/runner/Version.java.template >sr
 %doc doc/*
 
 %changelog
+* Sat Nov 23 2024 Marián Konček <mkoncek@redhat.com> - 1:4.13.1-9
+- Add noarch to ExclusiveArch
+
+* Fri Nov 22 2024 Marián Konček <mkoncek@redhat.com> - 1:4.13.1-8
+- Disable building on i686
+
 * Thu Nov 21 2024 Marián Konček <mkoncek@redhat.com> - 1:4.13.1-7
 - Fix patch usage
 
