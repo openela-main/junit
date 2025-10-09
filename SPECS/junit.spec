@@ -1,7 +1,7 @@
 Name:           junit
 Epoch:          1
 Version:        4.12
-Release:        14%{?dist}
+Release:        13%{?dist}
 Summary:        Java regression test package
 License:        EPL-1.0
 URL:            http://www.junit.org/
@@ -86,9 +86,6 @@ sed s/@version@/%{version}/ src/main/java/junit/runner/Version.java.template >sr
 %doc doc/*
 
 %changelog
-* Fri Jul 10 2020 Jiri Vanek <jvanek@redhat.com> - 1:4.12-14
-- Rebuilt for JDK-11, see https://fedoraproject.org/wiki/Changes/Java11
-
 * Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1:4.12-13
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
